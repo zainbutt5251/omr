@@ -9,35 +9,43 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
 
 ?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<ul class="nav navbar-nav menu_nav ml-auto">
-								<?php if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
-								?>
-								
-								<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-								<?php	
-								} else{
-								?>
-								<li class="nav-item"><a class="nav-link" href="logout.php">logout</a></li>
-								<?php
-								
-								}
-								?>
-								
-							<li class="nav-item"><a class="nav-link" href="signup.php">Register</a></li>
-							</ul>
-    
-</body>
-</html>  
+<?php
+include ("partials/_headlinks.php");
+?>
+        <div class="wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="span3">
+                       
+						<?php include ("partials/_sidebar.php");?>
+                      
+                    </div>
+                 
+                    <div class="span9">
+                        <div class="content">
+                            <div class="btn-controls">
+                              
+                       
+                        </div>
+                        <!--/.content-->
+                    </div>
+                    <!--/.span9-->
+                </div>
+            </div>
+            <!--/.container-->
+        </div>
+        <!--/.wrapper-->
+        <div class="footer">
+            <div class="container">
+                <b class="copyright">&copy; 2014 Edmin - EGrappler.com </b>All rights reserved.
+            </div>
+        </div>
+        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
+        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
+        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="scripts/common.js" type="text/javascript"></script>
       
+    </body>

@@ -3,12 +3,12 @@
 $login = false;
 $showError = false;
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    include 'partials/_dbconnect.php';
+    include '../partials/_dbconnect.php';
     $email = $_POST["email"];
     $password = $_POST["password"]; 
     
      
-    $sql = "Select * from users where email='$email' AND password='$password' " ;
+    $sql = "Select * from admin where email='$email' AND password='$password' " ;
     $result = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($result);
     if ($num == 1){
@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['email'] = $email;
-        header("location: user_home.php");
+        header("location: Admin_home.php");
 
     } 
     else{
@@ -58,16 +58,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     ?>
 
-    <div class="container my-4 " style="padding: 50px;">
+    <div class="container my-4" style="padding: 50px;">
      <!-- <h1 class="text-center"><img src="User/img/logo.png" alt="" height="90PX"> USER LOGIN</h1>
      <hr> -->
 	 <div class="card  shadow p-3">
-<div class="d-flex ml-5 text-center">
-	 <img src="img/recharge.png"style="border-radius: 190px;
+
+	 <div class="d-flex ml-5 text-center">
+	 <img src="../User/img/recharge.png"style="border-radius: 190px;
     height: 50px;width:50px" alt=""> <h4 class="ml-3">online Mobiel recharge Portal</h4>
    
 </div>
-  <form action="login.php" method="post">
+     <form action="login.php" method="post">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
