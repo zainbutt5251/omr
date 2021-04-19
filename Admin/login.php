@@ -1,9 +1,12 @@
 <?php
+include('partials/_dbconnect.php');
+?>
+<?php
 
 $login = false;
 $showError = false;
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    include '../partials/_dbconnect.php';
+    include 'partials/_dbconnect.php';
     $email = $_POST["email"];
     $password = $_POST["password"]; 
     
@@ -16,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['email'] = $email;
-        header("location: Admin_home.php");
+        header("location: Add_oprator.php");
 
     } 
     else{
@@ -38,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <title>Login</title>
   </head>
-  <body>
+  <body style="padding:20px;height:100vh;  background-image: linear-gradient(red, yellow);">
     <?php
     if($login){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -70,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </div>
      <form action="login.php" method="post">
         <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username">Email</label>
             <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
             
         </div>

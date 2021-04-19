@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <title>Login</title>
   </head>
-  <body>
+  <body style="padding: 0px 20px; height:100vh;  background-image: linear-gradient(red, yellow);">
     <?php
     if($login){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -83,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      </form>
      <div class="row">
          <div class="col-md-12 text-right">
-             <a href="../index.php">Already login </a>
+             <a href="../index.php">GO TO HOME </a>
          </div>
      </div>
 	 </div>
