@@ -10,8 +10,8 @@ $str="";
 $str1 ="<h4>PREPAID PLAN</h4>
 <label class='control-label' for='basicinput'>VAS</label>
 <div class='controls'>
-    <select tabindex='1'  name='vas' class='span8' required>
-        <option  selected disabled>_____________________________Select VAS________________________</option>
+    <select tabindex='1'  name='vas' class='span8 serviceselected' required>
+        <option   disabled>_____________________________Select VAS________________________</option>
         " ;
          
         $sql = "SELECT * FROM plans";
@@ -39,11 +39,11 @@ $str1 ="<h4>PREPAID PLAN</h4>
 <br>
 <label class='control-label' for='basicinput'>Amount</label>
 <div class='controls'>
-    <select tabindex='1'  name='p_amount' class='span8' required>
-        <option  selected disabled>_____________________________Select Amount________________________</option>
+    <select tabindex='1'  name='p_amount' id='selectedsec'class='span8' required>
+        <option   disabled>_____________________________Select Amount________________________</option>
         ";
          
-        $sql = "SELECT * FROM plans";
+        $sql = "SELECT * FROM plans where services='$services'";
         $result = $conn->query($sql);
         $str4="";
         if ($result->num_rows > 0) {
@@ -64,5 +64,22 @@ $str1 ="<h4>PREPAID PLAN</h4>
 echo $str1.$str2.$str3.$str4.$str5;
 
 ?>
- <div>
+ <script>
+   $('.serviceselected').on('change',function(e) {
+      var value = $(this).val(); //Get the clicked checkbox value
+     
+        $.ajax({
+                url: "load-amount.php",
+                type: "post",
+             data:{ 'value':value},
+                success: function(data) {
+                  console.log(data);
+                    $('#selectedsec').html(data)
+                  
+                }
+
+            });
+   
+   });
+   </script>
 											
