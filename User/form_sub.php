@@ -19,7 +19,8 @@ if(isset($_POST["submit_feedback"]))
     
     if ($conn->query($sql) === TRUE) {
       echo "New record created successfully";
-      header("location:feedback.php");
+      echo "<script type='text/javascript'>alert('Feedback save successfully'); window.location.href='feedback.php';</script>";
+      
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -53,7 +54,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     
     if ($conn->query($sql) === TRUE) {
       echo "New record created successfully";
-      header("location:user_home.php");
+      echo "<script type='text/javascript'>alert('Recharge successfully'); window.location.href='user_home.php';</script>";
+      
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }

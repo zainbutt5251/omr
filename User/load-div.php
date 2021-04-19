@@ -7,7 +7,7 @@ if ($conn -> connect_errno) {
   exit();
 }
 $str="";
-$str1 ="<h4>Select plan</h4>
+$str1 ="<h4>PREPAID PLAN</h4>
 <label class='control-label' for='basicinput'>VAS</label>
 <div class='controls'>
     <select tabindex='1'  name='vas' class='span8' required>
@@ -17,19 +17,19 @@ $str1 ="<h4>Select plan</h4>
         $sql = "SELECT * FROM plans";
         $result = $conn->query($sql);
         
+        $str2="";
         if ($result->num_rows > 0) {
           // output data of each row
           while($row = $result->fetch_assoc()) {
            
             $sevices =array($row['services']);
-        
         foreach($sevices as $services ){
-            if($sevices >1){
-                        $str2="<option value=".$services."> ".$services."</option>";
+           
+                        $str2.="<option value=".$services."> ".$services."</option>";
+                
+                      }
                     }
-                }
-        
-          }
+                  
         }
     
    $str3="</select>
@@ -45,7 +45,7 @@ $str1 ="<h4>Select plan</h4>
          
         $sql = "SELECT * FROM plans";
         $result = $conn->query($sql);
-        
+        $str4="";
         if ($result->num_rows > 0) {
           // output data of each row
           while($row = $result->fetch_assoc()) {
@@ -53,7 +53,7 @@ $str1 ="<h4>Select plan</h4>
          $amount=$row['amount'];
         
         
-        $str4= "<option value=".$amount.">".$amount."</option>";
+        $str4.= "<option value=".$amount.">".$amount."</option>";
     
           }
         }

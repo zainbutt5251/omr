@@ -18,7 +18,7 @@ include ("partials/_headlinks.php");
                             <hr>
                             <form class="form-horizontal row-fluid" action="form_sub.php" method="POST" enctype="multipart/form-data">
                             <?php 
-                            $id=$_GET['id'];
+                                         $id=$_GET['id'];
                                         $sql = "SELECT * FROM oprator where id='$id'";
                                         $result = $conn->query($sql);
                                         
@@ -36,10 +36,11 @@ include ("partials/_headlinks.php");
 												
 											</div>
 										</div>
-
+                                      
                                         <div class="control-group">
 											<label class="control-label" for="basicinput">Address link</label>
 											<div class="controls">
+                                              <input type="hidden" name="id" value="<?php echo $id;?>">
 												<input type="text" id="address" name="link" value="<?php echo $row['link']?>" class="span8">
 												
 											</div>

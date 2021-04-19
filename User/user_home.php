@@ -19,7 +19,7 @@ include("partials/_headlinks.php");
                                 <label class="control-label" for="basicinput">Oprator</label>
                                 <div class="controls">
                                     <select tabindex="1" name="oprator" class="span8" class="target" required>
-                                        <option selected disabled>_____________________________Select Oprator________________________</option>
+                                        <option  disabled>_____________________________Select Oprator________________________</option>
                                         <?php
 
                                         $sql = "SELECT * FROM oprator";

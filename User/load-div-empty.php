@@ -1,4 +1,4 @@
 <?php
-$str= "you are selected postpaid";
+$str= "<h4>POSTAPAID </h4>";
 echo $str;
 ?>

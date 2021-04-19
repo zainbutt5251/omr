@@ -29,8 +29,8 @@ if(isset($_POST["save_oprator"]))
        if (move_uploaded_file($_FILES['img']['tmp_name'], $target)) {
            $msg = "Image uploaded successfully";
            
-         
-             header("location:Add_oprator.php");
+           echo "<script type='text/javascript'>alert('Oprator save successfully'); window.location.href='Add_oprator.php';</script>";
+           
            
        }else{
            $msg = "Failed to upload image";
@@ -45,6 +45,8 @@ if(isset($_POST["save_oprator"]))
 // edit oprator
 if(isset($_POST["Edit_oprator"]))
 {
+$id_ot=$_POST['id'];
+
 
     $name=$_POST['name'];
     $address=$_POST['link'];
@@ -55,15 +57,15 @@ if(isset($_POST["Edit_oprator"]))
        // image file directory
        $target = "upload/".rand(5088090592616,2).basename($image);
 
-       $sql = "UPDATE oprator set name='$name',link='$address',img='$target'";
+       $sql = "UPDATE oprator set name='$name',link='$address',img='$target' where id='$id_ot'";
        // execute query
        mysqli_query($conn, $sql);
  
        if (move_uploaded_file($_FILES['img']['tmp_name'], $target)) {
            $msg = "Image uploaded successfully";
-           
+             echo "<script type='text/javascript'>alert('Oprator Edit successfully'); window.location.href='oprator_setup.php';</script>";
          
-             header("location:oprator_setup.php");
+           
            
        }else{
            $msg = "Failed to upload image";
@@ -92,9 +94,9 @@ if( empty($optr_name) || empty($services)){
        // execute query
        mysqli_query($conn, $sql);
        echo `<script type="text/javascript"> alert('plan  save')</script>`;
- 
+  echo "<script type='text/javascript'>alert('Plan Save successfully'); window.location.href='Add_plan.php';</script>";
       
-             header("location:Add_plan.php");
+           
 }     
       
 }
@@ -119,10 +121,9 @@ if(isset($_POST["save_offer"]))
        if (move_uploaded_file($_FILES['img']['tmp_name'], $target)) {
            $msg = "Image uploaded successfully";
            
-           echo"<script language='javascript'>
-                    alert('asdfa');
-                            </script>";
-             header("location:Add_offer.php");
+          echo "<script type='text/javascript'>alert('Offer Save successfully'); window.location.href='Add_offer.php';</script>";
+
+             
            
        }else{
            $msg = "Failed to upload image";
